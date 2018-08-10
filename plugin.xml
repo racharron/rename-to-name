@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="rename_to_name.commands.category"
+            name="Sample Category">
+      </category>
+      <command
+            categoryId="rename_to_name.commands.category"
+            name="Sample Command"
+            id="rename_to_name.commands.sampleCommand">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="rename_to_name.handlers.RTRHandler"
+            commandId="rename_to_name.commands.sampleCommand">
+      </handler>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+      <key
+            commandId="rename_to_name.commands.sampleCommand"
+            schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+            contextId="org.eclipse.ui.contexts.window"
+            sequence="M1+6">
+      </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:#CompilationUnitEditorContext?after=additions">
+         <command
+               commandId="rename_to_name.commands.sampleCommand"
+               label="Rename"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+
+</plugin>
